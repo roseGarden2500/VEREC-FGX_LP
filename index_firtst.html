@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEREC-FGX - 高精度オフライン音声文字起こしツール（完全ローカル完結型）</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --accent: #2b6cb0;
+            --cta: #28a745;
+            --text: #2d3748;
+            --bg: #f7fafc;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: -40px auto 40px auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            font-size: 1.8rem;
+        }
+        h2:first-of-type {
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--secondary);
+            padding: 25px;
+            border-radius: 6px;
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .highlight-box {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .highlight-box h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #f4f7f6, #e9ecef);
+            border-radius: 8px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--cta);
+            color: #fff;
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+        .spec-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .spec-list strong {
+            display: inline-block;
+            width: 160px;
+            color: var(--primary);
+        }
+        footer {
+            text-align: center;
+            padding: 30px
+            color: #718096;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VEREC-FGX</h1>
+        <div class="subtitle">Verbal Recognition Engine & Component（高精度オフライン音声文字起こし）</div>
+        <div class="badge">シェアウェア（無料試用：10回まで） / 完全ローカル完結型</div>
+    </header>
+
+    <div class="container">
+
+        <h2>VEREC-FGXとは？</h2>
+        <p><strong>VEREC-FGX</strong>は、高精度なAI音声認識モデルを搭載したデスクトップアプリケーションです。社外秘の会議録音、取材音源、医療・士業の会話記録など、**外部クラウドへ送信できない機密音声データ**をPC上で安全にテキスト化します。</p>
+        <p>ダウンロードして解凍するだけでそのまま動作するオールインワン設計。面倒な環境構築や追加ライブラリの事前設定は一切不要です。ビジネス用のノートPC環境でも軽快に動作し、処理はすべて**完全ローカル環境（オフライン完結）**で行われるため、機密情報が外部へ漏洩するリスクはありません。</p>
+
+        <h2>VEREC-FGXが選ばれる6つの特徴</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>1. スマホから直接送れる「QRコード音声転送」機能</h3>
+                <p>スマホで録音した音声を、画面に表示されるQRコードを読み取るだけでPCへ直接転送（※同一Wi-Fi内）。ケーブル接続やクラウド共有を挟むことなく、手元で手軽に文字起こしを開始できます。</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>2. 音質自動補正（SafeAudioPreProcessor）内蔵</h3>
+                <p>文字起こしを実行する前に、ノイズ除去や音量調整などの前処理を自動で行う専用フィルターを適用。周囲の雑音やマイク特有の歪みを整え、認識率を極限まで引き上げます。</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>3. ドラッグ＆ドロップ対応 ＋ 多彩な入出力</h3>
+                <p>音声ファイル（.wav, .mp3, .m4a など）を画面に投げ込むだけの一括文字起こしに対応。認識結果はクリップボードへのコピーおよび `.txt` ファイル保存がワンクリックで行えます。</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>4. 完全ローカル完結＆優れたコストパフォーマンス</h3>
+                <p>AI音声認識処理の全工程をPC内で完結。重要な会議、取材、機密情報の含まれる打ち合わせなど、情報漏洩してはいけないものでも、外部に一切出さずに完全ローカルで処理されるため、安心してお使い頂けます。また、一般にAIの処理は高性能なGPUが搭載されたマシンが必要ですが、普段お使いのノートPCでスムーズに動作するように実装しています。そして自身のPCで完結するため、月額サブスクリプション不要で安心して利用可能です。</p>
+            </div>
+            <div class="feature-card">
+                <h3>5. 自身のPCでの動作確認</h3>
+                <p>10回まで試用できるため、事前に自身のPCで動作するかの確認ができます。試用して問題ないことを確認してから購入頂けます。</p>
+            </div>
+            <div class="feature-card">
+                <h3>6. １ライセンスで最大3台のPCで利用</h3>
+                <p>ライセンスを購入された方が所有しているPCであれば、最大３台まで１ライセンスでご利用頂けます。</p>
+            </div>
+
+        </div>
+
+        <h2>動作環境</h2>
+        <ul class="spec-list">
+            <li><strong>対応OS:</strong> Windows 10 / 11 (64bit)</li>
+            <li><strong>動作環境:</strong> 標準的なWindowsノートPC / デスクトップPC</li>
+            <li><strong>対応ハードウェア:</strong> 一般的な64ビットのCPU</li>
+            <li><strong>事前準備:</strong> 不要（必要なランタイム類はすべて同梱・解凍してすぐ実行可能）</li>
+            <li><strong>インターネット:</strong> 不要（完全ローカル完結） ※ライセンス認証時だけインターネット接続が必要です。</li>
+        </ul>
+
+        <h2>試用制限とライセンスについて</h2>
+        <p>本ソフトウェアはシェアウェアです。解凍後、<strong>無料試用枠【10回】</strong>まで全機能をお試しいただけます。継続してご利用いただくには、正規ライセンスキーのご購入が必要です。</p>
+        <p><em>※初回起動時にWindowsのセキュリティ画面（ファイアウォール/SmartScreen）が表示された場合は、「アクセスを許可する」および「詳細情報」＞「実行」を選択してご使用ください（完全ローカル動作のため外部インターネット通信はありません）。</em></p>
+
+        <div class="cta-section">
+            <h3>機密情報を守り、手元のPCで高精度な文字起こしを体験</h3>
+            <p>製品の詳細やシェアウェア版のダウンロードについては、以下のボタンよりご確認いただけます。</p>
+            <a href="#" class="btn">Vector等で詳細を見る / ダウンロード</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; Feature GateX All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
